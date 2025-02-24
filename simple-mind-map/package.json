@@ -1,6 +1,6 @@
 {
   "name": "@byted/byteqa-simple-mind-map",
-  "version": "0.13.2",
+  "version": "0.13.4",
   "private": false,
   "publishConfig": {
     "registry": "https://bnpm.byted.org/"
