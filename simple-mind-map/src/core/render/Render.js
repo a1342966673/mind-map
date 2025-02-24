@@ -1354,6 +1354,10 @@ class Render {
 
   //  移除节点
   removeNode(appointNodes = []) {
+    if (typeof this.mindMap.isNodeCanDelete === 'function'){
+      const canDel = this.mindMap.isNodeCanDelete()
+      if (!canDel) return
+    }
     appointNodes = formatDataToArray(appointNodes)
     if (this.activeNodeList.length <= 0 && appointNodes.length <= 0) {
       return

@@ -523,4 +523,7 @@ export const defaultOpt = {
   // 自定义新增节点的属性，可以传递一个函数，需要返回一个对象，对象的属性会被添加到新节点的data属性中
   customNewNodeParams: null,
 
+  // 自定义节点是否可以删除，返回true代表可以删除，返回false代表不可以删除
+  isNodeCanDelete: null,
+
 }
