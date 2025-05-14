@@ -766,7 +766,7 @@ class Render {
       if (alreadyIsRichText && params.resetRichText) {
         delete params.resetRichText
       }
-      const newNodeData = {
+      let newNodeData = {
         inserting,
         data: {
           text: text,
@@ -775,6 +775,13 @@ class Render {
           ...(appointData || {})
         },
         children: [...createUidForAppointNodes(appointChildren, createNewId)]
+      }
+      if ( typeof this.mindMap.opt.customNewNodeParams === 'function'){
+        const customParams = this.mindMap.opt.customNewNodeParams()
+        newNodeData = {
+          ...newNodeData,
+          ...customParams || {}
+        }
       }
       createNewId = true
       parent.nodeData.children.splice(index + 1, 0, newNodeData)
